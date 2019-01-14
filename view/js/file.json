@@ -1,0 +1,34 @@
+{
+    "formations":[
+        {
+            "nom":"Bureautique",
+            "volume":"2",
+            "htt":"100",
+            "per":"50"
+        },
+        {
+            "nom":"Infographie",
+            "volume":"2",
+            "htt":"100",
+            "per":"50"
+        },
+        {
+            "nom":"Langues",
+            "volume":"2",
+            "htt":"150",
+            "per":"50"
+        },
+        {
+            "nom":"Management",
+            "volume":"2",
+            "htt":"200",
+            "per":"50"
+        },
+        {
+            "nom":"Comptabilité",
+            "volume":"3",
+            "htt":"100",
+            "per":"50"
+        }
+    ]
+}
