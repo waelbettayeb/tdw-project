@@ -20,7 +20,8 @@
         </div>
         <div class="col-6 text-dark border rounded" id="ad-content">
             <h5>Ad-panel</h5>
-            <img id="ad-image" src="static/img/ad_img.png" class="img-fluid" alt="Responsive image">
+            <img id="ad-image" src="static/img/ad_img.png" 
+            class="img-fluid" alt="Responsive image" width="200">
         </div>
         <div class="col-2 col-md">
 
