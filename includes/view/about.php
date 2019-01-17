@@ -8,10 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="./view/css/style.css" id="#main-style" />
+    <link type="text/css" rel="stylesheet" href="./static/css/style.css" id="#main-style" />
     <?php
-    echo "<title>",$title,"</title>";
+    echo "<title>à propos</title>";
     ?>
+    <script type="text/javascript" src="./static/view/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/popper.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/lib.js"></script>
 
 </head>
 

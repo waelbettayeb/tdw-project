@@ -12,7 +12,10 @@
     <?php
     echo "<title>", $page_categorie,"</title>";
     ?>
-
+    <script type="text/javascript" src="./static/view/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/popper.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/lib.js"></script>
 </head>
 
 <body>
@@ -27,16 +30,12 @@
         <?php
         require_once("sidebar.php");
         ?>
-<?php
-//    require
 
-    print_r(DB::getSchoolByType($page_categorie));
-?>
         <div class="container col-md-auto" id="content">
             <h2>
-    <?php
-    echo  $page_categorie;
-    ?>
+            <?php
+                echo  $page_categorie;
+            ?>
             </h2>
             <h5>écoles</h5>
             <table class="table table-hover">
@@ -44,6 +43,12 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
+                    <th scope="col">Categorie</th>
+                    <?php
+                        if(($page_categorie == "universitaire")
+                        ||($page_categorie == "formation-professionnelle"))
+                            echo "<th scope=\"col\">Domaine</th>";
+                    ?>
                     <th scope="col">Commune</th>
                     <th scope="col">Wilaya</th>
                     <th scope="col">adresse</th>
@@ -51,23 +56,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
+                <?php
+                    $table = DB::getSchoolByType($page_categorie);
+                    // print_r($table);
+                    foreach ($table as $row){
+                        echo "<tr>\n".
+                            "            <th scope=\"row\">{$row[0]}</th>\n".
+                            "            <td >{$row[1]}</td>\n" .
+                            "            <td class=\"htt-td\">{$row[2]}</td>\n";
+                        if(($page_categorie == "universitaire")
+                            ||($page_categorie == "formation-professionnelle"))
+                            echo "<td class=\"htt-td\">{$row[3]}</td>\n";
 
+                        echo"            <td class=\"htt-td\">{$row[5]}</td>\n".
+                            "            <td class=\"perc-td\">{$row[4]}</td>\n" .
+                            "            <td class=\"ttc-td\">{$row[6]}</td>\n".
+                            "            <td class=\"ttc-td\">{$row[7]}</td>\n".
+                            "        </tr>";
+                    }
+                ?>
                 </tbody>
             </table>        
         </div>

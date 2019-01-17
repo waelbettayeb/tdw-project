@@ -82,7 +82,8 @@ class DB {
     }
     public static function getSchoolByType($type){
         $query =
-            "SELECT school.name,
+            "SELECT school.id,
+                    school.name,
                     school_type.name,
                     domain.name, 
                     wilaya.name, 
