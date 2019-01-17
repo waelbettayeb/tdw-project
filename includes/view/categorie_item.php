@@ -1,4 +1,6 @@
 <h2><?php echo $page_categorie; ?></h2>
+<button type="button" class="btn btn-light">Ajouter</button>
+
             <table id="dtBasicExample" class="table table-hover">
                 <thead>
                 <tr>
@@ -22,23 +24,23 @@
                     // print_r($table);
                     foreach ($table as $row){
                         echo "<tr>\n".
-                            "            <th scope=\"row\">{$row[0]}</th>\n".
-                            "            <td school_id=\"{$row[0]}\">
-                            
+                            "            <th scope=\"row\">    <button class=\"badge badge-primary edit-btn\" data-school-id=\"{$row[0]}\">Modifier</button>
+                            <button class=\"badge badge-danger delete-btn\" data-school-id=\"{$row[0]}\">Supprimer</button>
+                        </th>\n".
+                            "            <td contenteditable=\"true\" school_id=\"{$row[0]}\">
                             {$row[1]}
                             </br>
-                            <a href=\"school?id={$row[0]}\" class=\"badge badge-dark\">site</a>
-                            <a href=\"school?id={$row[0]}#commentaire\" class=\"badge badge-primary\">Commenter</a>
+                        
                             </td>\n" .
                             "            <td class=\"htt-td\">{$row[2]}</td>\n";
                         if(($page_categorie == "universitaire")
                             ||($page_categorie == "formation-professionnelle"))
                             echo "<td class=\"htt-td\">{$row[3]}</td>\n";
 
-                        echo"            <td class=\"htt-td\">{$row[5]}</td>\n".
-                            "            <td class=\"perc-td\">{$row[4]}</td>\n" .
-                            "            <td class=\"ttc-td\">{$row[6]}</td>\n".
-                            "            <td class=\"ttc-td\">{$row[7]}</td>\n".
+                        echo"            <td contenteditable=\"true\" class=\"htt-td\">{$row[5]}</td>\n".
+                            "            <td contenteditable=\"true\" class=\"perc-td\">{$row[4]}</td>\n" .
+                            "            <td contenteditable=\"true\" class=\"ttc-td\">{$row[6]}</td>\n".
+                            "            <td contenteditable=\"true\" class=\"ttc-td\">{$row[7]}</td>\n".
                             "        </tr>";
                     }
                 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 17, 2019 at 02:01 AM
+-- Generation Time: Jan 17, 2019 at 08:47 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -36,6 +36,15 @@ CREATE TABLE `account` (
   `comment_access` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `name`, `password`, `privilege_id`, `comment_access`) VALUES
+(1, 'user', 'user', 1, 1),
+(2, 'admin', 'admin', 2, 1),
+(3, 'super', 'super', 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,15 @@ CREATE TABLE `account_privilege` (
   `id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account_privilege`
+--
+
+INSERT INTO `account_privilege` (`id`, `name`) VALUES
+(2, 'admin'),
+(1, 'regular'),
+(3, 'super admin');
 
 -- --------------------------------------------------------
 
@@ -58,8 +76,19 @@ CREATE TABLE `comment` (
   `content` text NOT NULL,
   `account_id` int(11) NOT NULL,
   `school_id` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `content`, `account_id`, `school_id`, `date`) VALUES
+(1, 'Best School ever', 1, 12, '2019-01-17 16:40:52'),
+(2, 'Thank you', 2, 12, '2019-01-17 17:07:38'),
+(3, 'grow up', 3, 12, '2019-01-17 17:44:14'),
+(24, 'd', 1, 15, '2019-01-17 18:10:32'),
+(25, 'hola', 3, 12, '2019-01-17 20:28:39');
 
 -- --------------------------------------------------------
 
@@ -149,7 +178,9 @@ CREATE TABLE `formation` (
 --
 
 INSERT INTO `formation` (`id`, `name`, `hours_volume`, `ht`, `percentage_ttc`, `school_id`, `type_id`) VALUES
-(1, 'bda', 2, 10000, 10, 12, 1);
+(1, 'bda', 2, 10000, 10, 12, 1),
+(2, 'db', 3, 20000, 10, 12, 1),
+(3, 'tdw', 3, 100, 5, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -167,7 +198,8 @@ CREATE TABLE `formation_type` (
 --
 
 INSERT INTO `formation_type` (`id`, `name`) VALUES
-(1, 'database');
+(1, 'database'),
+(2, 'web');
 
 -- --------------------------------------------------------
 
@@ -222,6 +254,13 @@ CREATE TABLE `school_account` (
   `id_school` int(11) NOT NULL,
   `id_account` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `school_account`
+--
+
+INSERT INTO `school_account` (`id_school`, `id_account`) VALUES
+(12, 2);
 
 -- --------------------------------------------------------
 
@@ -320,6 +359,8 @@ INSERT INTO `wilaya` (`id`, `name`) VALUES
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `name_2` (`name`),
   ADD KEY `privilege_id` (`privilege_id`);
 
 --
@@ -327,7 +368,8 @@ ALTER TABLE `account`
 --
 ALTER TABLE `account_privilege`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `name_2` (`name`);
 
 --
 -- Indexes for table `comment`
@@ -404,19 +446,19 @@ ALTER TABLE `wilaya`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `account_privilege`
 --
 ALTER TABLE `account_privilege`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `commune`
@@ -434,13 +476,13 @@ ALTER TABLE `domain`
 -- AUTO_INCREMENT for table `formation`
 --
 ALTER TABLE `formation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `formation_type`
 --
 ALTER TABLE `formation_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `school`

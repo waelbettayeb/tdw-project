@@ -39,6 +39,7 @@
         <div class="container col-md-auto" id="content">
           
             <?php
+            if((!empty($_SESSION))&&( $_SESSION["user_privilege"] == 3)){
                 $page_categorie = "maternelle";
                 require("./includes/view/categorie_item.php");
                 $page_categorie = "primaire";
@@ -51,6 +52,9 @@
                 require("./includes/view/categorie_item.php");
                 $page_categorie = "universitaire";
                 require("./includes/view/categorie_item.php");
+            }
+            else
+                echo "HAHHAHAHAHA";
             ?>
         </div>
     </div>

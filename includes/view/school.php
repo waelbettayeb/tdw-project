@@ -42,7 +42,7 @@
             ?>
             </h2>
             <?php
-            // require("school_carousel.php");
+            require("school_carousel.php");
             ?>
             <nav class="nav">
             <?php

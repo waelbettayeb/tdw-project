@@ -68,3 +68,9 @@ password:admin
 
 name:user
 password:user
+
+### Example
+
+try this school to see formations
+
+>universitaire>Ecole Superieure d'informatique (id = 12)

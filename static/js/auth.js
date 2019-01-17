@@ -98,7 +98,27 @@ function getSchoolsBytype() {
 // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
 }
+function deleteSchool(school_id) {
+    // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+// Create some variables we need to send to our PHP file
+    var url = "./handlers/deleteSchool.php";
 
+    hr.open("POST", url, true);
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var vars = "school_id="+ school_id;
+    hr.onreadystatechange = function () {
+        if (hr.readyState == 4 && hr.status == 200) {
+            var return_data = hr.responseText;
+            if (hr.DONE) {
+                location.reload();
+            }
+
+        }
+    }
+// Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+}
 function createComparatorTable(){
     var tbody = document.getElementById("tbody-compare");
     var select = document.getElementsByClassName("school-name-select");
@@ -159,6 +179,10 @@ $(document).ready(function() {
     })
     $(".school-name-select").change(function(){
         createComparatorTable();
+    })
+    $(".delete-btn").click(function(){
+        var school_id = this.getAttribute("data-school-id");
+        deleteSchool(school_id);
     })
 });
 

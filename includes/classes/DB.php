@@ -57,9 +57,9 @@ class DB {
           
         return self::query($query);
     }
-    public static function deleteFormationById($formation_id){
+    public static function deleteSchoolById($school_id){
         $query =
-            "DELETE FROM `formation` WHERE `formation`.`id` = {$formation_id};";
+            "DELETE FROM `school` WHERE `school`.`id` = {$school_id};";
         return self::query($query);
     }
     public static function deleteTypeFormationById($type_formation_id){
