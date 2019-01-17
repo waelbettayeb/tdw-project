@@ -51,3 +51,20 @@ You can change these information by
 ```bash
 sudo nano ./includes/classes/DB.php
 ```
+
+### DB accounts
+
+#### Super admin
+
+name:super
+password:super
+
+#### Admin
+
+name:admin
+password:admin
+
+#### Regular user
+
+name:user
+password:user

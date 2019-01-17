@@ -43,6 +43,9 @@ Route::set('universitaire', function () {
 Route::set('compare', function () {
     Controller::createCompareView();
 });
+Route::set('edit', function () {
+    Controller::createEditView();
+});
 
 Route::set('about', function () {
     Controller::createAboutView();

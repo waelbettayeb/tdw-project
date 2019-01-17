@@ -14,11 +14,17 @@
                     '<div class="input-group mb-3">'.
                         '<button id="connect-btn" type="button" class="btn btn-primary btn-block">s\'identifier</button>'.
                     '</div>';
-                    else
-                    echo'<div class="input-group mb-3">'.
+                    else{
+                        
+                        echo'<div class="input-group mb-3">'.
                         '<button id="disconnect-btn" type="button" class="btn btn-primary btn-block">Se déconnecter</button>'.
-                    '</div>';
-                    ?>
+                        '</div>';
+                        if( $_SESSION["user_privilege"] == 3)
+                        echo'<div class="input-group mb-3">'.
+                        '<a href="edit" id="edit-btn" type="button" class="btn btn-danger btn-block">Editer</a>'.
+                        '</div>';
+                    }
+                        ?>
 
                     </li>
                     <li class="nav-item">
@@ -29,7 +35,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="compare">
-                            Comparer ? <span class="sr-only">(current)</span>
+                            Comparer ? 
                         </a>
                     </li>
                     <li class="nav-item">

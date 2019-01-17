@@ -29,6 +29,10 @@ class Controller {
     {
         require_once('./includes/view/comparator.php');
     }
+    public static function createEditView()
+    {
+        require_once('./includes/view/edit.php');
+    }
 
 }
 ?>

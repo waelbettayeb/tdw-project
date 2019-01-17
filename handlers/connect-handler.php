@@ -8,6 +8,7 @@ require_once("../includes/classes/DB.php");
         $_SESSION["user"] = $_POST['username'];
         $_SESSION["pwd"] = $_POST['password'];
         $_SESSION["user_id"] = $table[0][4];
+        $_SESSION["user_privilege"] = $table[0][2];
         echo true;
     }
     else
