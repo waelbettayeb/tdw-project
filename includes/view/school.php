@@ -89,7 +89,15 @@
             <h5 id="commentaire">Commentaires</h5>
 
             <div class=" border border-primary rounded p-4" >
-
+            <?php
+            if((!empty($_SESSION))&&(DB::getAccount($_SESSION['user'])[0][3]))
+            echo'<div class="input-group mb-3">
+                <textarea id="comment-content"class="form-control" aria-label="With textarea"></textarea>
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="comment-btn" data-schoolId="'.$_GET['id'].'">Commenter</button>
+             </div>';
+            ?>
+            </div>
             <?php
                 $table = DB::getComment($_GET['id']);
                 foreach ($table as $row){

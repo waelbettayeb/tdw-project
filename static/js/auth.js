@@ -45,10 +45,35 @@ function disconnect() {
 // Send the data to PHP now... and wait for response to update the status div
     hr.send(vars); // Actually execute the request
 }
+function comment() {
+    // Create our XMLHttpRequest object
+    var hr = new XMLHttpRequest();
+// Create some variables we need to send to our PHP file
+    var content = document.getElementById("comment-content").value;
+    var school_id =  (document.getElementById("comment-btn")).getAttribute("data-schoolId");
+    var url = "./handlers/comment-handler.php";
+    alert(school_id);
+    hr.open("POST", url, true);
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var vars = "content="+ content+"&school_id="+school_id;
+    hr.onreadystatechange = function () {
+        if (hr.readyState == 4 && hr.status == 200) {
+            var return_data = hr.responseText;
+            if (hr.DONE) {
+                alert(return_data);
+                location.reload();
+            }
+        }
+    }
+// Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+}
 $(document).ready(function() {
     $("#connect-btn").click(function(){
         authenticate();})
     $("#disconnect-btn").click(function(){
         disconnect();})
+    $("#comment-btn").click(function(){
+        comment();})
 });
 

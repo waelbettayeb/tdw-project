@@ -153,7 +153,7 @@ class DB {
     
     public static function getAccount($name){
         $query =
-        "   SELECT account.name, account.password, account.privilege_id
+        "   SELECT account.name, account.password, account.privilege_id, comment_access, account.id
             FROM account
             WHERE account.name = '{$name}';";
         return self::query($query);
@@ -168,6 +168,14 @@ class DB {
                     ON account.privilege_id = account_privilege.id
             WHERE school_id = {$school_id}
             ORDER BY comment.date  DESC;";
+        return self::query($query);
+    }
+    public static function insertComment($content, $user_id, $school_id){
+        $query =
+        "   INSERT INTO `comment` (`id`, `content`, `account_id`, `school_id`, `date`) VALUES 
+        (NULL, '{$content}', '{$user_id}', '{$school_id}', CURRENT_TIMESTAMP);
+        ";
+        echo $query;
         return self::query($query);
     }
 }
