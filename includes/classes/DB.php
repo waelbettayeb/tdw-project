@@ -28,13 +28,21 @@ class DB {
             ORDER BY type_name, name ASC;";
         return self::query($query);
     }
-    public static function getFormationById($formation_id){
+    public static function getFormationsBySchoolId($school_id){
         $query =
-            "SELECT type_id, formation.id, type_name, name, hours, htt, percentage 
-            FROM types_formation
-            WHERE formation.id = {$formation_id}
-            INNER JOIN formation ON type_id = types_formation.id 
-            ORDER BY type_name, name ASC;";
+        "   SELECT  formation.id,
+            formation_type.name,
+            formation.name,
+            hours_volume,
+            ht,
+            percentage_ttc 
+            
+            FROM formation
+            INNER JOIN formation_type
+                ON formation_type.id = type_id
+            WHERE formation.school_id = '{$school_id}'
+            ;";
+          
         return self::query($query);
     }
     public static function deleteFormationById($formation_id){
@@ -110,6 +118,24 @@ class DB {
             FROM wilaya 
             INNER JOIN commune ON wilaya_id = wilaya.id 
             ORDER BY wilaya.id  ASC;";
+        return self::query($query);
+    }
+    public static function getSchoolNameById($id){
+        $query =
+            "SELECT school.name,
+            school_type.name,
+            wilaya.name, 
+            commune.name, 
+            school.address, 
+            school.phone_number 
+            FROM commune 
+                INNER JOIN wilaya 
+                    ON wilaya_id = wilaya.id 
+                INNER JOIN school 
+                    ON school.commune_id = commune.id  
+            LEFT JOIN school_type  
+                    ON school_type.id = school.type_id
+            WHERE school.id = '{$id}';";
         return self::query($query);
     }
 }

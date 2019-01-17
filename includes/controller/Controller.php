@@ -21,6 +21,10 @@ class Controller {
     {
         require_once('./includes/view/about.php');
     }
+    public static function createSchoolView()
+    {
+        require_once('./includes/view/school.php');
+    }
 
 }
 ?>

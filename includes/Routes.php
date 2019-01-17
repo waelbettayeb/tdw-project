@@ -13,7 +13,10 @@ Route::set('index.php', function () {
     Controller::createView();
 
 });
+Route::set('school', function () {
+    Controller::createSchoolView();
 
+});
 Route::set('maternelle', function () {
     Controller::createCategorieView("maternelle");
 });
