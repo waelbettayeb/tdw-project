@@ -158,4 +158,16 @@ class DB {
             WHERE account.name = '{$name}';";
         return self::query($query);
     }
+    public static function getComment($school_id){
+        $query =
+        "   SELECT comment.id, comment.content, comment.date, account.name, account.privilege_id
+            FROM comment
+                LEFT JOIN account
+                    ON account.id = comment.account_id
+                LEFT JOIN account_privilege
+                    ON account.privilege_id = account_privilege.id
+            WHERE school_id = {$school_id}
+            ORDER BY comment.date  DESC;";
+        return self::query($query);
+    }
 }

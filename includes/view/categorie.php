@@ -70,7 +70,9 @@
                             "            <td school_id=\"{$row[0]}\">
                             
                             {$row[1]}
+                            </br>
                             <a href=\"school?id={$row[0]}\" class=\"badge badge-dark\">site</a>
+                            <a href=\"school?id={$row[0]}#commentaire\" class=\"badge badge-primary\">Commenter</a>
                             </td>\n" .
                             "            <td class=\"htt-td\">{$row[2]}</td>\n";
                         if(($page_categorie == "universitaire")

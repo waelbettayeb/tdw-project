@@ -84,7 +84,35 @@
                     }
                 ?>
                 </tbody>
-            </table>    
+            </table> 
+            
+            <h5 id="commentaire">Commentaires</h5>
+
+            <div class=" border border-primary rounded p-4" >
+
+            <?php
+                $table = DB::getComment($_GET['id']);
+                foreach ($table as $row){
+
+                echo '<div class="row border border-primary rounded p-3 mb-3" ><div class="media mb-2" id="'.$row[0].'">';
+                echo '<div class="media-body">';
+                echo '<h5 class="mt-0">'. $row[3];
+                if($row[4] == 1)
+                    echo '<span class="badge badge-secondary">regular</span>';
+                else if ($row[4] == 2)
+                    echo '<span class="badge badge-primary">Admin</span>';
+                else
+                    echo '<span class="badge badge-danger">Super</span>';
+                echo '</h5>';
+                echo '<h6 class="card-subtitle mt-0text-muted">'. $row[2].'</h6>';
+                echo $row[1];    
+                echo '</div></div></div>';
+                }
+            ?>   
+                
+
+            </div>
+            </br>
             <?php
                 $table = DB::getSchoolNameById($_GET['id']);
                 $address = $table[0][2]." ".$table[0][3]." ".$table[0][4];
