@@ -48,8 +48,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">type</th>
                     <th scope="col">Nom</th>
+                    <th scope="col">type</th>
                     <th scope="col">volume horaire</th>
                     <th scope="col">ht</th>
                     <th scope="col">ttc</th>
@@ -58,26 +58,22 @@
                 <tbody>
                 <?php
                     $table = DB::getFormationsBySchoolId($_GET['id']);
-                    print_r($table);
-                    // foreach ($table as $row){
-                    //     echo "<tr>\n".
-                    //         "            <th scope=\"row\">{$row[0]}</th>\n".
-                    //         "            <td school_id=\"{$row[0]}\">
+                    foreach ($table as $row){
+                        echo "<tr>\n".
+                            "            <th scope=\"row\">{$row[0]}</th>\n".
+                            "            <td school_id=\"{$row[0]}\">
                             
-                    //         {$row[1]}
-                    //         <a href=\"#\" class=\"badge badge-dark\">site</a>
-                    //         </td>\n" .
-                    //         "            <td class=\"htt-td\">{$row[2]}</td>\n";
-                    //     if(($page_categorie == "universitaire")
-                    //         ||($page_categorie == "formation-professionnelle"))
-                    //         echo "<td class=\"htt-td\">{$row[3]}</td>\n";
-
-                    //     echo"            <td class=\"htt-td\">{$row[5]}</td>\n".
-                    //         "            <td class=\"perc-td\">{$row[4]}</td>\n" .
-                    //         "            <td class=\"ttc-td\">{$row[6]}</td>\n".
-                    //         "            <td class=\"ttc-td\">{$row[7]}</td>\n".
-                    //         "        </tr>";
-                    // }
+                            {$row[1]}
+                            <a href=\"formation?id={$row[0]}\" class=\"badge badge-dark\">site</a>
+                            </td>\n" .
+                            "            <td class=\"htt-td\">{$row[2]}</td>\n";
+                       
+                        $ttc = $row[4]*(1+ $row[5]/100);
+                        echo"            <td class=\"htt-td\">{$row[3]}</td>\n".
+                            "            <td class=\"perc-td\">{$row[4]}</td>\n" .
+                            "            <td class=\"perc-td\">{$ttc}</td>\n" .
+                            "        </tr>";
+                    }
                 ?>
                 </tbody>
             </table>        

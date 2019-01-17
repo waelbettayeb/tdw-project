@@ -31,8 +31,8 @@ class DB {
     public static function getFormationsBySchoolId($school_id){
         $query =
         "   SELECT  formation.id,
-            formation_type.name,
             formation.name,
+            formation_type.name,
             hours_volume,
             ht,
             percentage_ttc 
