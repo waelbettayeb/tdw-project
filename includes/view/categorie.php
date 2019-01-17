@@ -19,7 +19,7 @@
     <script type="text/javascript" src="./static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="./static/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="./static/js/categorie.js"></script>
-    <script type="text/javascript" src="./static/view/js/auth.js"></script>
+    <script type="text/javascript" src="./static/js/auth.js"></script>
 
 </head>
 
