@@ -2,7 +2,27 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php">
+                    <?php
+                    session_start();
+                    if(empty($_SESSION))
+                    echo '<div class="input-group mb-3">'.
+                        '<input id="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">'.
+                    '</div>'.
+                    '<div class="input-group mb-3">'.
+                        '<input id="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">'.
+                    '</div>'.
+                    '<div class="input-group mb-3">'.
+                        '<button id="connect-btn" type="button" class="btn btn-primary btn-block">s\'identifier</button>'.
+                    '</div>';
+                    else
+                    echo'<div class="input-group mb-3">'.
+                        '<button id="disconnect-btn" type="button" class="btn btn-primary btn-block">Se déconnecter</button>'.
+                    '</div>';
+                    ?>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             Accueil <span class="sr-only">(current)</span>
                         </a>

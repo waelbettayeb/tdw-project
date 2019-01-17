@@ -16,6 +16,7 @@
     <script type="text/javascript" src="./static/view/js/popper.min.js"></script>
     <script type="text/javascript" src="./static/view/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./static/view/js/lib.js"></script>
+    <script type="text/javascript" src="./static/view/js/auth.js"></script>
 
 </head>
 

@@ -34,3 +34,20 @@ Restart or reload Apache
 ```bash
 sudo service apache2 restart
 ```
+
+### Note
+
+> Please disable your ad-blocker
+
+## Informations
+
+1. database name : "project"
+1. database user : "root"
+1. database host : "localhost:3306"
+1. database password : ""
+
+You can change these information by
+
+```bash
+sudo nano ./includes/classes/DB.php
+```

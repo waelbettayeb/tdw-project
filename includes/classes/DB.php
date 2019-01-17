@@ -150,4 +150,12 @@ class DB {
             WHERE school.id = '{$id}';";
         return self::query($query);
     }
+    
+    public static function getAccount($name){
+        $query =
+        "   SELECT account.name, account.password, account.privilege_id
+            FROM account
+            WHERE account.name = '{$name}';";
+        return self::query($query);
+    }
 }

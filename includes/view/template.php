@@ -12,10 +12,11 @@
     <?php
     echo "<title>",$title,"</title>";
     ?>
-    <script type="text/javascript" src="./static/view/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="./static/view/js/popper.min.js"></script>
-    <script type="text/javascript" src="./static/view/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./static/view/js/lib.js"></script>
+    <script type="text/javascript" src="./static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./static/js/popper.min.js"></script>
+    <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/js/lib.js"></script>
+    <script type="text/javascript" src="./static/js/auth.js"></script>
 
 </head>
 
