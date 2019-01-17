@@ -82,10 +82,25 @@ class DB {
     }
     public static function getSchoolByType($type){
         $query =
-            "SELECT  school.name, wilaya.name, commune.name, htt, percentage 
-            FROM types_formation 
-            INNER JOIN formation ON type_id = types_formation.id 
-            ORDER BY type_name, name ASC;";
+            "SELECT school.name,
+                    school_type.name,
+                    domain.name, 
+                    wilaya.name, 
+                    commune.name, 
+                    school.address, 
+                    school.phone_number 
+            FROM commune 
+                INNER JOIN wilaya 
+                    ON wilaya_id = wilaya.id 
+                INNER JOIN school 
+                    ON school.commune_id = commune.id  
+                LEFT JOIN domain 
+                    ON domain.id = school.domain
+                LEFT JOIN school_type  
+                    ON school_type.id = school.type_id
+                WHERE school_type.name = '{$type}';
+            ";
+                    
         return self::query($query);
     }
     public static function getCommune(){

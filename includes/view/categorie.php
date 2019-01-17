@@ -30,7 +30,7 @@
 <?php
 //    require
 
-    print_r(DB::getCommune());
+    print_r(DB::getSchoolByType($page_categorie));
 ?>
         <div class="container col-md-auto" id="content">
             <h2>

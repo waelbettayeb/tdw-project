@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 17, 2019 at 12:57 AM
+-- Generation Time: Jan 17, 2019 at 02:01 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -144,6 +144,13 @@ CREATE TABLE `formation` (
   `type_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `formation`
+--
+
+INSERT INTO `formation` (`id`, `name`, `hours_volume`, `ht`, `percentage_ttc`, `school_id`, `type_id`) VALUES
+(1, 'bda', 2, 10000, 10, 12, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -188,8 +195,8 @@ INSERT INTO `school` (`id`, `name`, `type_id`, `domain`, `commune_id`, `address`
 (2, 'Ecole El-Nadjah', 0, NULL, 13, '50 Rue des oliviers', '021 56 25 70', 1),
 (3, 'Ecole Les glycines', 3, NULL, 14, '50 Rue de la gare', '021 56 25 70', 1),
 (4, 'Institue de mecanique', 4, 3, 10, '50 Rue de la gare', '021 56 25 70', 1),
-(5, 'Ecole Superieure d’Electronique', NULL, 8, 3, '3500 Rue de la liberte', '035 56 25 70', 1),
-(6, 'Ecole Superieure de Commerce', NULL, NULL, 2, '50 Rue des martyrs', '031 56 25 70', 1),
+(5, 'Ecole Superieure d’Electronique', 5, 8, 3, '3500 Rue de la liberte', '035 56 25 70', 1),
+(6, 'Ecole Superieure de Commerce', 5, 4, 2, '50 Rue des martyrs', '031 56 25 70', 1),
 (7, 'Institue des métiers du bâtiments', 4, 1, 12, '50 Rue des oliviers', '021 56 25 70', 1),
 (8, 'Ecole El-Moutafawikines', 2, NULL, 19, '50 Rue des martyrs', '021 56 25 70', 1),
 (9, 'Ecole El-Nadjihine', 1, NULL, 20, '50 Rue des dunes', '021 56 25 70', 1),
@@ -427,7 +434,7 @@ ALTER TABLE `domain`
 -- AUTO_INCREMENT for table `formation`
 --
 ALTER TABLE `formation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `formation_type`
@@ -439,13 +446,13 @@ ALTER TABLE `formation_type`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `school_type`
 --
 ALTER TABLE `school_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wilaya`
