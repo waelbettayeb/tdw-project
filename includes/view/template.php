@@ -36,23 +36,53 @@
 <!--        --><?php
 //        require_once("comparator.php");
 //        ?>
-        <!--            <div class="card text-left">-->
-<!--                <div class="card-header">-->
-<!--                    Universitaire-->
-<!--                </div>-->
-<!--                <div class="card-body">-->
-<!---->
-<!--                    <h5 class="card-title">Ecole Supérieure de Commerce</h5>-->
-<!---->
-<!--                    <p class="card-text">-->
-<!--                        Wilaya : Oran.-->
-<!--                        Commune : Es-Senia-->
-<!--                        Adresse : 50 Rue des martyrs.-->
-<!--                        Téléphone : 031 56 25 70-->
-<!--                        Fax : 031 56 30 50</p>-->
-<!--                    <a href="?url=categorie" class="btn btn-outline-secondary">Visiter</a>-->
-<!--                </div>-->
-<!--            </div>-->
+<div class="row">
+<div class="col">
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Maternelle</h5>
+    <a href="maternelle" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Primaire</h5>
+    <a href="primaire" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">moyen</h5>
+    <a href="moyen" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+</div>
+<div class="col">
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">secondaire</h5>
+    <a href="secondaire" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">formation-professionnelle</h5>
+    <a href="formation-professionnelle" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">universitaire</h5>
+    <a href="universitaire" class="btn btn-primary">Voir les écoles</a>
+  </div>
+</div>
+</div>
+</div>
         </div>
 
     </div>

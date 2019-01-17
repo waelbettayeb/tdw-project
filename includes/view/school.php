@@ -48,7 +48,7 @@
             <?php
                 $table = DB::getTypesFormationBySchoolId($_GET['id']);
                 foreach ($table as $row){
-                    echo "<a class=\"nav-link\" href=\"school-type?id={$row[0]}\">{$row[1]}</a>";
+                    echo "<a class=\"nav-link\" href=\"about\">{$row[1]}</a>";
             }
             ?>
 

@@ -123,6 +123,29 @@ class DB {
             ";
                     
         return self::query($query);
+    }public static function getSchoolByTypeId($typeId){
+        $query =
+            "SELECT school.id,
+                    school.name,
+                    school_type.name,
+                    domain.name, 
+                    wilaya.name, 
+                    commune.name, 
+                    school.address, 
+                    school.phone_number 
+            FROM commune 
+                INNER JOIN wilaya 
+                    ON wilaya_id = wilaya.id 
+                INNER JOIN school 
+                    ON school.commune_id = commune.id  
+                LEFT JOIN domain 
+                    ON domain.id = school.domain
+                LEFT JOIN school_type  
+                    ON school_type.id = school.type_id
+                WHERE school_type.id = '{$typeId}';
+            ";
+                    
+        return self::query($query);
     }
     public static function getCommune(){
         $query =
@@ -175,7 +198,10 @@ class DB {
         "   INSERT INTO `comment` (`id`, `content`, `account_id`, `school_id`, `date`) VALUES 
         (NULL, '{$content}', '{$user_id}', '{$school_id}', CURRENT_TIMESTAMP);
         ";
-        echo $query;
+        return self::query($query);
+    }
+    public static function getSchoolTypes(){
+        $query = "SELECT * FROM `school_type`";
         return self::query($query);
     }
 }

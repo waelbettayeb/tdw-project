@@ -40,6 +40,9 @@ Route::set('formation-professionnelle', function () {
 Route::set('universitaire', function () {
     Controller::createCategorieView("universitaire");
 });
+Route::set('compare', function () {
+    Controller::createCompareView();
+});
 
 Route::set('about', function () {
     Controller::createAboutView();

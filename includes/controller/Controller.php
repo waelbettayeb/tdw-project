@@ -25,6 +25,10 @@ class Controller {
     {
         require_once('./includes/view/school.php');
     }
+    public static function createCompareView()
+    {
+        require_once('./includes/view/comparator.php');
+    }
 
 }
 ?>
