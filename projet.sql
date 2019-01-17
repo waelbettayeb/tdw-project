@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2019 at 06:37 PM
--- Server version: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Generation Time: Jan 17, 2019 at 12:57 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -174,7 +174,7 @@ CREATE TABLE `school` (
   `type_id` int(11) DEFAULT NULL,
   `domain` int(11) DEFAULT NULL,
   `commune_id` int(11) NOT NULL,
-  `adress` varchar(120) NOT NULL,
+  `address` varchar(120) NOT NULL,
   `phone_number` varchar(120) NOT NULL,
   `online` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -183,7 +183,7 @@ CREATE TABLE `school` (
 -- Dumping data for table `school`
 --
 
-INSERT INTO `school` (`id`, `name`, `type_id`, `domain`, `commune_id`, `adress`, `phone_number`, `online`) VALUES
+INSERT INTO `school` (`id`, `name`, `type_id`, `domain`, `commune_id`, `address`, `phone_number`, `online`) VALUES
 (1, 'Ecole El-Falah', 3, NULL, 0, '50 Rue de la liberte', '021 56 25 70', 1),
 (2, 'Ecole El-Nadjah', 0, NULL, 13, '50 Rue des oliviers', '021 56 25 70', 1),
 (3, 'Ecole Les glycines', 3, NULL, 14, '50 Rue de la gare', '021 56 25 70', 1),
@@ -236,7 +236,7 @@ INSERT INTO `school_type` (`id`, `name`) VALUES
 (1, 'primaire'),
 (2, 'moyen'),
 (3, 'secondaire'),
-(4, 'formation professionnelle'),
+(4, 'formation-professionnelle'),
 (5, 'universitaire');
 
 -- --------------------------------------------------------

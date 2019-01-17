@@ -1,3 +1,4 @@
-.backup*
+.backup
 .idea
+phpmyadmin
 

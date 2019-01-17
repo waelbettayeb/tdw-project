@@ -8,9 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="./view/css/style.css" id="#main-style" />
+    <link type="text/css" rel="stylesheet" href="./static/css/style.css" id="#main-style" />
     <?php
-    echo "<title>",$title,"</title>";
+    echo "<title>", $page_categorie,"</title>";
     ?>
 
 </head>
@@ -27,16 +27,24 @@
         <?php
         require_once("sidebar.php");
         ?>
+<?php
+//    require
 
+    print_r(DB::getCommune());
+?>
         <div class="container col-md-auto" id="content">
-            <h2>Ecole Supérieure de Commerce</h2>
-            <h5>Formations</h5>
+            <h2>
+    <?php
+    echo  $page_categorie;
+    ?>
+            </h2>
+            <h5>écoles</h5>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
-                    <th scope="col">Catégorie</th>
+                    <th scope="col">Commune</th>
                     <th scope="col">Wilaya</th>
                     <th scope="col">adresse</th>
                     <th scope="col">téléphones</th>
@@ -61,8 +69,8 @@
                 </tr>
 
                 </tbody>
-            </table>        </div>
-
+            </table>        
+        </div>
     </div>
     <?php
     require_once("footer.php");

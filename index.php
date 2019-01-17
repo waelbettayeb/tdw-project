@@ -1,11 +1,11 @@
 <?php
-require_once( './Routes.php' );
+require_once( './includes/Routes.php' );
 
 function __autoload($class_name) {
-    if(file_exists('./classes/'.$class_name.'.php')) {
-        require_once './classes/'.$class_name.'.php';
+    if(file_exists('./includes/classes/'.$class_name.'.php')) {
+        require_once './includes/classes/'.$class_name.'.php';
     }
-    else if (file_exists('./controller/'.$class_name.'.php')) {
-        require_once './controller/' . $class_name.'.php';
+    else if (file_exists('./includes/controller/'.$class_name.'.php')) {
+        require_once './includes/controller/' . $class_name.'.php';
     }
 }

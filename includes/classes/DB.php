@@ -1,9 +1,9 @@
 <?php
 class DB {
     public static $host = 'localhost:3306';
-    public static $dbname = 'TDW';
+    public static $dbname = 'projet';
     public static $user = 'root';
-    public static $dbpass = '0000';
+    public static $dbpass = '';
     private static function connect() {
         $pdo = new PDO('mysql:host='.self::$host.';' .
                         'dbname='.self::$dbname.';' .
@@ -78,6 +78,22 @@ class DB {
         $query =
             "INSERT INTO types_formation(type_name) 
             VALUES ('{$type_formation_name}');";
+        return self::query($query);
+    }
+    public static function getSchoolByType($type){
+        $query =
+            "SELECT  school.name, wilaya.name, commune.name, htt, percentage 
+            FROM types_formation 
+            INNER JOIN formation ON type_id = types_formation.id 
+            ORDER BY type_name, name ASC;";
+        return self::query($query);
+    }
+    public static function getCommune(){
+        $query =
+            "SELECT wilaya.name, commune.name, wilaya.id, commune.id
+            FROM wilaya 
+            INNER JOIN commune ON wilaya_id = wilaya.id 
+            ORDER BY wilaya.id  ASC;";
         return self::query($query);
     }
 }

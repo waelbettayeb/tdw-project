@@ -8,26 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link type="text/css" rel="stylesheet" href="./view/css/style.css" id="#main-style" />
+    <link type="text/css" rel="stylesheet" href="./static/css/style.css" id="#main-style" />
     <?php
     echo "<title>",$title,"</title>";
     ?>
-    <script type="text/javascript" src="./view/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="./view/js/popper.min.js"></script>
-    <script type="text/javascript" src="./view/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./view/js/lib.js"></script>
-    <script>
-        function updateMaps(query){
-            var link = "https://maps.google.com/maps?q=" + encodeURIComponent(query.trim()) + "&t=k&z=13&ie=UTF8&iwloc=&output=embed";
-            var iframe = document.getElementById("gmap_canvas");
-            iframe.src = link;
-            iframe.contentWindow.location.reload();
-        }
-        $(document).ready(function() {
-            updateMaps("Mostagenem Algerie");
-        });
+    <script type="text/javascript" src="./static/view/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/popper.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/view/js/lib.js"></script>
 
-    </script>
 </head>
 
 <body>
@@ -43,9 +32,9 @@
         require_once("sidebar.php");
         ?>
         <div class="container col-md-auto" id="content">
-        <?php
-        require_once("comparator.php");
-        ?>
+<!--        --><?php
+//        require_once("comparator.php");
+//        ?>
         <!--            <div class="card text-left">-->
 <!--                <div class="card-header">-->
 <!--                    Universitaire-->
@@ -68,10 +57,10 @@
     </div>
 <!--    <div class="map-container">-->
 <!--        <div class="gmap_canvas">-->
-            <iframe id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=50%20Rue%20des%20martyrs%20oran&t=k&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-            </iframe>
+                <!-- <iframe id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=50%20Rue%20des%20martyrs%20oran&t=k&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                </iframe> -->
 <!--        </div>-->
 <!--    </div>-->
 
