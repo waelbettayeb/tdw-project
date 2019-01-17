@@ -54,7 +54,7 @@ margin: 0;    /*position: fixed;*/
 .map-container{
     text-align:right;
     height:500px;
-    width:80%;
+    min-width:100%;
     background-color: aqua;
 }
 #gmap_canvas {

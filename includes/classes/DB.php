@@ -45,6 +45,18 @@ class DB {
           
         return self::query($query);
     }
+    public static function getTypesFormationBySchoolId($school_id){
+        $query =
+        "   SELECT DISTINCT formation_type.id,
+            formation_type.name
+            FROM formation_type
+            INNER JOIN formation
+                ON formation_type.id = type_id
+            WHERE formation.school_id = {$school_id}
+            ;";
+          
+        return self::query($query);
+    }
     public static function deleteFormationById($formation_id){
         $query =
             "DELETE FROM `formation` WHERE `formation`.`id` = {$formation_id};";

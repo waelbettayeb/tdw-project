@@ -37,12 +37,20 @@
             <h2>
             <?php
                 echo DB::getSchoolNameById($_GET['id'])[0][0];
-                
             ?>
             </h2>
             <?php
             // require("school_carousel.php");
             ?>
+            <nav class="nav">
+            <?php
+                $table = DB::getTypesFormationBySchoolId($_GET['id']);
+                foreach ($table as $row){
+                    echo "<a class=\"nav-link\" href=\"school-type?id={$row[0]}\">{$row[1]}</a>";
+            }
+            ?>
+
+</nav>
             <h5>Formations</h5>
             <table id="dtBasicExample" class="table table-hover">
                 <thead>
@@ -62,10 +70,8 @@
                         echo "<tr>\n".
                             "            <th scope=\"row\">{$row[0]}</th>\n".
                             "            <td school_id=\"{$row[0]}\">
-                            
                             {$row[1]}
-                            <a href=\"formation?id={$row[0]}\" class=\"badge badge-dark\">site</a>
-                            </td>\n" .
+                            " .
                             "            <td class=\"htt-td\">{$row[2]}</td>\n";
                        
                         $ttc = $row[4]*(1+ $row[5]/100);
@@ -76,7 +82,29 @@
                     }
                 ?>
                 </tbody>
-            </table>        
+            </table>    
+            <?php
+                $table = DB::getSchoolNameById($_GET['id']);
+                $address = $table[0][2]." ".$table[0][3]." ".$table[0][4];
+                echo "Adresse : ". $address;
+            ?>    
+    <div class="row" >
+   
+                <iframe id="gmap_canvas"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    <?php
+                       
+                        $address = $table[0][2]." ".$table[0][3]." ";
+                        $query = str_replace("+", "%20", urlencode($address));;
+                        echo "src=\"".
+                            "https://maps.google.com/maps?q=".
+                            $query .
+                            "&t=k&z=13&ie=UTF8&iwloc=&output=embed\"";
+                ?>
+                >
+                </iframe>
+    </div>
+    
         </div>
     </div>
     <?php
